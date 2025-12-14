@@ -1,5 +1,5 @@
 const API_CONFIG = {
-  BASE_URL: 'http://127.0.0.1:8080',
+  BASE_URL: 'https://tdd-lab-api.vercel.app/api/TDDCycles',
 };
 
 export default API_CONFIG;
