@@ -9,29 +9,27 @@ function getGitUser() {
   }
 }
 
-function getRepoName() {
+function getRepoInfo() {
   try {
     const remoteUrl = execSync('git remote get-url origin').toString().trim();
-    // Extracts 'repo-name' from URLs like:
-    // https://github.com/user/repo-name.git
-    // git@github.com:user/repo-name.git
-    const repoNameMatch = remoteUrl.match(/[:/]([^/]+\/[^/]+)\.git$/);
-    if (repoNameMatch && repoNameMatch[1]) {
-      // We are interested in the repo name, not the user/repo
-      const parts = repoNameMatch[1].split('/');
-      return parts[1];
+    // Extracts 'owner/repo-name' from URLs like:
+    // https://github.com/owner/repo-name.git
+    // git@github.com:owner/repo-name.git
+    const repoInfoMatch = remoteUrl.match(/[:/]([^/]+\/[^/]+)\.git$/);
+    if (repoInfoMatch && repoInfoMatch[1]) {
+      const [owner, name] = repoInfoMatch[1].split('/');
+      return { owner, name };
     }
-    return 'unknown_repo';
+    return { owner: 'unknown_owner', name: 'unknown_repo' };
   } catch (error) {
-    console.error('Error getting Git repository name:', error.message);
-    // This can happen if there is no remote named 'origin'
-    return 'unknown_repo';
+    console.error('Error getting Git repository info:', error.message);
+    return { owner: 'unknown_owner', name: 'unknown_repo' };
   }
 }
 
 const gitUtils = {
     getGitUser,
-    getRepoName,
+    getRepoInfo,
 };
 
 

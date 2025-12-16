@@ -95,6 +95,7 @@ try {
     // 1. Send aggregated commit data to backend
     const commitPayload = {
       _id: currentSha,
+      sha: currentSha, 
       branch: branchName,
       author: currentCommitData.author,
       commit: currentCommitData.commit,

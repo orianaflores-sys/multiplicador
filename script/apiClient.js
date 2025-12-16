@@ -3,7 +3,7 @@ import API_CONFIG from './apiConfig.js';
 import gitUtils from './gitUtils.js';
 
 const { BASE_URL } = API_CONFIG;
-const { getGitUser, getRepoName } = gitUtils;
+const { getRepoInfo } = gitUtils;
 
 /**
  * Sends commit data to the backend.
@@ -11,13 +11,12 @@ const { getGitUser, getRepoName } = gitUtils;
  */
 async function sendCommit(commitData) {
   try {
-    const userId = getGitUser();
-    const repoName = getRepoName();
+    const { owner, name } = getRepoInfo();
 
     const payload = {
       ...commitData,
-      user_id: userId,
-      repo_name: repoName,
+      user_id: owner,    // Use repo owner as user_id for querying
+      repo_name: name,   // Use repo name
     };
 
     console.log('Sending data to /commits endpoint...');
@@ -35,13 +34,12 @@ async function sendCommit(commitData) {
  */
 async function sendTestRuns(batchData) {
   try {
-    const userId = getGitUser();
-    const repoName = getRepoName();
+    const { owner, name } = getRepoInfo();
 
     const payload = {
       ...batchData,
-      user_id: userId,
-      repo_name: repoName,
+      user_id: owner,    // Use repo owner as user_id for querying
+      repo_name: name,   // Use repo name
     };
 
     console.log('Sending test runs batch to /test-runs endpoint...');
@@ -59,3 +57,4 @@ const apiClient = {
 
 
 export default apiClient;
+
