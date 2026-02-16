@@ -7,14 +7,14 @@ describe("Saludar", () => {
 });*/
 import saludar from "./saludar";
 
-describe("Saludar", () => {
-  it("deberia saludar con genero masculino", () => {
-    expect(saludar("Pepe", 9, "M")).toEqual("Buenos días, Pepe (Masculino)");
-  });
+expect(saludar("Pepe", 9, "M", 35))
+  .toEqual("Buenos días, Sr. Pepe");
 
-  it("deberia saludar con genero femenino", () => {
-    expect(saludar("Ana", 15, "F")).toEqual("Buenas tardes, Ana (Femenino)");
-  });
-});
+expect(saludar("Ana", 15, "F", 31))
+  .toEqual("Buenas tardes, Sra. Ana");
+
+expect(saludar("Luis", 21, "M", 25))
+  .toEqual("Buenas noches, Luis");
+
 
 

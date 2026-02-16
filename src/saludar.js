@@ -1,4 +1,4 @@
-function saludar(nombre, hora, genero) {
+function saludar(nombre, hora, genero, edad) {
   let saludo;
 
   if (hora < 12) {
@@ -9,11 +9,14 @@ function saludar(nombre, hora, genero) {
     saludo = "Buenas noches";
   }
 
-  let generoTexto = "";
-  if (genero === "M") generoTexto = "Masculino";
-  if (genero === "F") generoTexto = "Femenino";
+  let tratamiento = "";
 
-  return saludo + ", " + nombre + " (" + generoTexto + ")";
+  if (edad > 30) {
+    if (genero === "M") tratamiento = "Sr. ";
+    if (genero === "F") tratamiento = "Sra. ";
+  }
+
+  return saludo + ", " + tratamiento + nombre;
 }
 
 export default saludar;
