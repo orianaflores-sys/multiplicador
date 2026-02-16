@@ -29,8 +29,11 @@ mulButton.addEventListener("click", () => {
 const saludarButton = document.querySelector("#saludar-button");
 const nombreInput = document.querySelector("#nombre");
 
-
 saludarButton.addEventListener("click", () => {
   const nombre = nombreInput.value;
-  div.innerHTML = "<p>" + saludar(nombre) + "</p>";
+
+  const fechaActual = new Date();
+  const horaActual = fechaActual.getHours();
+
+  div.innerHTML = "<p>" + saludar(nombre, horaActual) + "</p>";
 });
