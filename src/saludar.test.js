@@ -7,14 +7,22 @@ describe("Saludar", () => {
 });*/
 import saludar from "./saludar";
 
-expect(saludar("Pepe", 9, "M", 35))
-  .toEqual("Buenos días, Sr. Pepe");
+describe("Saludar", () => {
+  it("deberia usar Sr. si es masculino y edad > 30", () => {
+    expect(saludar("Pepe", 9, "M", 35))
+      .toEqual("Buenos días, Sr. Pepe");
+  });
 
-expect(saludar("Ana", 15, "F", 31))
-  .toEqual("Buenas tardes, Sra. Ana");
+  it("deberia usar Sra. si es femenino y edad > 30", () => {
+    expect(saludar("Ana", 15, "F", 31))
+      .toEqual("Buenas tardes, Sra. Ana");
+  });
 
-expect(saludar("Luis", 21, "M", 25))
-  .toEqual("Buenas noches, Luis");
+  it("no deberia usar tratamiento si edad <= 30", () => {
+    expect(saludar("Luis", 21, "M", 25))
+      .toEqual("Buenas noches, Luis");
+  });
+});
 
 
 
