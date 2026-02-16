@@ -30,6 +30,8 @@ const saludarButton = document.querySelector("#saludar-button");
 const nombreInput = document.querySelector("#nombre");
 const generoSelect = document.querySelector("#genero");
 const edadInput = document.querySelector("#edad");
+const idiomaSelect = document.querySelector("#idioma");
+
 
 saludarButton.addEventListener("click", () => {
   const nombre = nombreInput.value;
@@ -39,5 +41,9 @@ saludarButton.addEventListener("click", () => {
   const fechaActual = new Date();
   const horaActual = fechaActual.getHours();
 
-  div.innerHTML = "<p>" + saludar(nombre, horaActual, genero, edad) + "</p>";
+  const idioma = idiomaSelect.value;
+
+div.innerHTML =
+  "<p>" + saludar(nombre, horaActual, genero, edad, idioma) + "</p>";
+
 });
