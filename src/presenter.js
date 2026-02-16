@@ -27,7 +27,10 @@ mulButton.addEventListener("click", () => {
 */
 
 const saludarButton = document.querySelector("#saludar-button");
+const nombreInput = document.querySelector("#nombre");
+
 
 saludarButton.addEventListener("click", () => {
-  div.innerHTML = "<p>" + saludar() + "</p>";
+  const nombre = nombreInput.value;
+  div.innerHTML = "<p>" + saludar(nombre) + "</p>";
 });
