@@ -1,14 +1,14 @@
-// import sumar from "./sumador";
-// import multiplicar from "./multiplicador";
+ import sumar from "./sumador";
+ import multiplicar from "./multiplicador";
 import saludar from "./saludar";
 
-// const first = document.querySelector("#primer-numero");
-// const second = document.querySelector("#segundo-numero");
-// const form = document.querySelector("#sumar-form");
+ const first = document.querySelector("#primer-numero");
+ const second = document.querySelector("#segundo-numero");
+ const form = document.querySelector("#sumar-form");
 const div = document.querySelector("#resultado-div");
-// const mulButton = document.querySelector("#multiplicar-button");
+ const mulButton = document.querySelector("#multiplicar-button");
 
-/*
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -24,8 +24,8 @@ mulButton.addEventListener("click", () => {
 
   div.innerHTML = "<p>" + multiplicar(firstNumber, secondNumber) + "</p>";
 });
-*/
 
+/*
 const saludarButton = document.querySelector("#saludar-button");
 const nombreInput = document.querySelector("#nombre");
 const generoSelect = document.querySelector("#genero");
@@ -47,3 +47,4 @@ div.innerHTML =
   "<p>" + saludar(nombre, horaActual, genero, edad, idioma) + "</p>";
 
 });
+*/
